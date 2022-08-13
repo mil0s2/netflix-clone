@@ -10,6 +10,7 @@ module.exports = {
         cream: '#e5e5e5',
         darkCream: '#b3b3b3',
         customBlack: '#141414',
+        customIndigo: '#010511',
       },
     },
   },

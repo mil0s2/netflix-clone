@@ -1,17 +1,36 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BellIcon, SearchIcon } from '@heroicons/react/outline';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`${isScrolled && 'bg-customBlack'}`}>
       <div className="relative flex items-center space-x-2 md:space-x-10">
         <Image
           src="/images/logo.svg"
           alt="logo"
           className="cursor-pointer"
-          width={100}
-          height={100}
+          width={118}
+          height={32}
         />
 
         <ul className="hidden space-x-4 md:flex">
