@@ -23,7 +23,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`${isScrolled && 'bg-customBlack'}`}>
+    <header className={`${isScrolled ? 'bg-customBlack' : 'headerBg'}`}>
       <div className="relative flex items-center space-x-2 md:space-x-10">
         <Image
           src="/images/logo.svg"
