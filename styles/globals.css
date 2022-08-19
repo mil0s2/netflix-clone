@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-customBlack text-white;
+    @apply !scrollbar-thin bg-customBlack text-white !scrollbar-track-transparent !scrollbar-thumb-netflix;
   }
   header {
     @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all duration-[.5s] lg:px-10 lg:py-6;
