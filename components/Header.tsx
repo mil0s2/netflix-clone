@@ -46,13 +46,15 @@ const Header = () => {
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
         <Link href={'/account'}>
-          <Image
-            src="/images/account.png"
-            alt="logo"
-            className="cursor-pointer rounded"
-            width={32}
-            height={32}
-          />
+          <a>
+            <Image
+              src="/images/account.png"
+              alt="logo"
+              className="cursor-pointer rounded"
+              width={32}
+              height={32}
+            />
+          </a>
         </Link>
       </div>
     </header>
