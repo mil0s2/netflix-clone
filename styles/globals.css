@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply !scrollbar-thin bg-customBlack text-white !scrollbar-track-transparent !scrollbar-thumb-netflix;
+    @apply bg-customBlack text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-netflix;
   }
   header {
     @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all duration-[.5s] lg:px-10 lg:py-6;
@@ -32,5 +32,9 @@
 
   .text-shadow-md {
     text-shadow: 0px 1px 2px rgb(30 29 39 / 19%), 1px 2px 4px rgb(54 64 147);
+  }
+
+  .input {
+    @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
   }
 }
