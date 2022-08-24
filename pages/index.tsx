@@ -1,5 +1,9 @@
 import Head from 'next/head';
-import { Banner, Header, Row } from '../components';
+import { useRecoilValue } from 'recoil';
+
+import { Banner, Header, Modal, Row } from '../components';
+import { modalState } from '../atoms/modalAtom';
+import useAuth from '../hooks/useAuth';
 import { Movie } from '../typings';
 import requests from '../utils/requests';
 
@@ -24,6 +28,11 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
+
+  if (loading) return null;
+
   return (
     <div className="bg-blend- relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
@@ -43,7 +52,7 @@ const Home = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      {/* Modal */}
+      {showModal && <Modal />}
     </div>
   );
 };

@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+import { useRecoilState } from 'recoil';
+
 import { baseUrl } from '../constants/movie';
 import { Movie } from '../typings';
 import { PlayIcon } from '@heroicons/react/solid';
-import { InformationCircleIcon } from '@heroicons/react/outline';
+import { InformationCircleIcon } from '@heroicons/react/solid';
+import { modalState, movieState } from '../atoms/modalAtom';
 
 interface Props {
   netflixOriginals: Movie[];
 }
 
 const Banner = ({ netflixOriginals }: Props) => {
-  const [movie, setMovie] = useState<Movie | null>();
+  const [movie, setMovie] = useState<Movie | null>(null);
+  const [_, setShowModal] = useRecoilState(modalState);
+  const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
 
   useEffect(() => {
     setMovie(
@@ -41,9 +46,15 @@ const Banner = ({ netflixOriginals }: Props) => {
         <button className="bannerButton bg-white text-black">
           <PlayIcon className="-ml-3 h-4 w-4 text-black md:h-7 md:w-7" /> Play
         </button>
-        <button className="bannerButton bg-[gray]/70">
-          <InformationCircleIcon className="-ml-1 h-4 w-4 md:h-7 md:w-7" /> More
-          Info
+        <button
+          onClick={() => {
+            setShowModal(true);
+            setCurrentMovie(movie);
+          }}
+          className="bannerButton bg-[gray]/70"
+        >
+          <InformationCircleIcon className="-ml-1 h-4 w-4 md:h-7 md:w-7" />
+          More Info
         </button>
       </div>
     </div>
