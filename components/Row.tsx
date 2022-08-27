@@ -15,7 +15,7 @@ interface Props {
 const Row = ({ title, movies }: Props) => {
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
-  const [prevScrollLeft, setPrevScrollLeft] = useState<number>();
+  const [prevScrollLeft, setPrevScrollLeft] = useState<number>(0);
 
   const handleMove = (direction: string) => {
     setIsMoved(true);
