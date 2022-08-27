@@ -7,6 +7,8 @@ import useAuth from '../hooks/useAuth';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
+
   const { logout } = useAuth();
 
   useEffect(() => {
@@ -48,18 +50,28 @@ const Header = () => {
         <SearchIcon className="hidden h-6 w-6 sm:inline" />
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
-        {/* <Link href={'/account'}>
-          <a> */}
-        <Image
-          onClick={logout}
-          src="/images/account.png"
-          alt="logo"
-          className="cursor-pointer rounded"
-          width={32}
-          height={32}
-        />
-        {/* </a>
-        </Link> */}
+        <div className="relative">
+          <Image
+            onClick={() => {
+              setShowOptions((prev) => !prev);
+            }}
+            src="/images/account.png"
+            alt="logo"
+            className="cursor-pointer rounded"
+            width={32}
+            height={32}
+          />
+          {showOptions && (
+            <div className="absolute right-0 rounded-md bg-[#181818] py-4">
+              <button
+                onClick={logout}
+                className="w-full px-4 py-2 hover:bg-gray-800"
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
