@@ -91,17 +91,22 @@ const Login = () => {
         >
           Sign in
         </button>
-        <div className="flex gap-1 text-darkCream">
-          <p>New to Netflix?</p>
-          <button
-            onClick={() => {
-              setLogin(false);
-            }}
-            type="submit"
-            className="text-white hover:underline"
-          >
-            Sign up now
-          </button>
+        <div className="flex flex-col">
+          <div className="flex gap-1 text-darkCream">
+            <p>New to Netflix?</p>
+            <button
+              onClick={() => {
+                setLogin(false);
+              }}
+              type="submit"
+              className="text-white hover:underline"
+            >
+              Sign up now
+            </button>
+          </div>
+          <p className="text-darkCream">
+            Sign up or use: test@test.com / test123
+          </p>
         </div>
       </form>
     </div>
