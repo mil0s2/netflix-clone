@@ -33,6 +33,17 @@ const Home = ({
 
   if (loading) return null;
 
+  console.log(
+    netflixOriginals,
+    trendingNow,
+    topRated,
+    actionMovies,
+    comedyMovies,
+    horrorMovies,
+    romanceMovies,
+    documentaries
+  );
+
   return (
     <div className="bg-blend- relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
