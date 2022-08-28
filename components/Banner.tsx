@@ -19,7 +19,7 @@ const Banner = ({ netflixOriginals }: Props) => {
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
 
   useEffect(() => {
-    if (netflixOriginals.length) {
+    if (netflixOriginals.length > 0) {
       setMovie(
         netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
       );
