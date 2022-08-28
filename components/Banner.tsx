@@ -19,10 +19,12 @@ const Banner = ({ netflixOriginals }: Props) => {
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
 
   useEffect(() => {
-    setMovie(
-      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
-    );
-  }, []);
+    if (netflixOriginals.length) {
+      setMovie(
+        netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
+      );
+    }
+  }, [netflixOriginals]);
 
   return (
     <div className="flex flex-col justify-end gap-2 py-16 pt-32 md:gap-4 lg:pb-12">
